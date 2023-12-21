@@ -1,0 +1,19 @@
+<div class="bloc">
+        <!-- Question 10 de TP (faut refaire la div pour les autres films)
+            <div>
+            <h4> Nom du film : {{tabFilms[0].nomFilm}} </h4>
+            <img [src]="tabFilms[0].imageFilm" class="image">
+            <button (click)="onJaime(0)">J’aime</button><span>{{tabFilms[0].nbJaime}}</span><br>
+            <button (click)="onAimePas(0)">Je n'aime pas</button><span>{{tabFilms[0].nbJenaimePas}}</span>
+            </div>
+        -->
+        <div *ngFor="let  f of tabFilms; let index=index" >
+            <div  *ngIf="f.disponible" [ngStyle]="{background : getColor(index)}">
+                <h4>{{f.nomFilm}}</h4>
+                <img [src]="f.imageFilm" class="image">
+                <button (click)="onJaime(index)">J'aime</button><span>{{f.nbJaime}}</span>
+                <button (click)="onAimePas(index)">Je n'aime pas</button><span>{{f.nbJenaimePas}}</span>
+            </div>
+
+        </div>
+</div>
